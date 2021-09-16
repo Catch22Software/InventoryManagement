@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="534.0" prefWidth="537.0" style="-fx-border-color: purple; -fx-border-insets: 15; -fx-border-width: 15;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER.Modifypartscreencontroller">
+    <children>
+        <VBox alignment="CENTER" layoutX="36.0" layoutY="34.0" prefHeight="463.0" prefWidth="470.0">
+            <children>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                    <children>
+                        <Label text="Modify Part">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <RadioButton fx:id="inhousebutton" mnemonicParsing="false" selected="true" text="In-House">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="partgroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="outsourcebutton" mnemonicParsing="false" text="Outsourced" toggleGroup="$partgroup" />
+                    </children>
+                </HBox>
+                <VBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <children>
+                                <Label text="ID" />
+                                <TextField fx:id="modpartID" disable="true" editable="false" onAction="#getPartIdAction" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <children>
+                                <Label text="Name" />
+                                <TextField fx:id="modpartname" onAction="#getPartNameAction" prefHeight="25.0" prefWidth="156.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <children>
+                                <Label text="Inv" />
+                                <TextField fx:id="modpartinv" onAction="#getPartInvAction" prefHeight="25.0" prefWidth="72.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <children>
+                                <Label text="Price / Cost" />
+                                <TextField fx:id="modpartcost" onAction="#getPartPriceAction" prefHeight="25.0" prefWidth="86.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <children>
+                                <Label text="Min" />
+                                <TextField fx:id="modpartmin" onAction="#getPartMinAction" prefHeight="25.0" prefWidth="48.0" />
+                                <Label text="Max">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                                <TextField fx:id="modpartmax" alignment="CENTER_RIGHT" onAction="#getPartMaxAction" prefHeight="25.0" prefWidth="44.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <children>
+                                <Label fx:id="machineidlabel" text="MachineID" />
+                                <TextField fx:id="modmachineid" onAction="#getMachineIdAction" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <children>
+                                <Label fx:id="compnamelabel" disable="true" text="Company Name" />
+                                <TextField fx:id="modcompname" disable="true" onAction="#getCompNameAction" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                    <children>
+                        <Button fx:id="savepartbutton" mnemonicParsing="false" onAction="#modPartAction" text="Save" />
+                        <Button fx:id="backtomainbutton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="GridPane" alignment="center" hgap="10" prefHeight="681.0" prefWidth="1234.0" style="-fx-border-color: purple; -fx-border-insets: 10; -fx-border-width: 10;" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER.Controllermainscreen">
+   <columnConstraints>
+      <ColumnConstraints hgrow="ALWAYS" />
+      <ColumnConstraints />
+      <ColumnConstraints hgrow="ALWAYS" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints vgrow="ALWAYS" />
+      <RowConstraints vgrow="ALWAYS" />
+      <RowConstraints minHeight="-Infinity" prefHeight="15.0" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="0.0" />
+   </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-insets: 10; -fx-border-color: black; -fx-border-width: 5;" GridPane.rowIndex="1">
+         <children>
+            <VBox prefHeight="0.0" prefWidth="345.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="200.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="40.0" text="Parts" />
+                        <TextField fx:id="searchparts" alignment="CENTER_RIGHT" onAction="#searchPartAction" prefHeight="25.0" prefWidth="159.0" promptText="Search by Part ID or Name" />
+                     </children>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <TableView fx:id="partsview">
+               <columns>
+                  <TableColumn fx:id="partidcol" prefWidth="75.0" text="Part ID#" />
+                  <TableColumn fx:id="partnamecol" prefWidth="75.0" text="Part Name" />
+                  <TableColumn fx:id="partinvcol" prefWidth="117.0" text="Inventory Level" />
+                  <TableColumn fx:id="partpricecol" prefWidth="103.0" text="Price / CPU" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addPartAction" text="Add" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modPartAction" text="Modify" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#delPartAction" text="Delete" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="25.0" left="100.0" right="50.0" top="25.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: blue; -fx-border-insets: 10; -fx-border-width: 5;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <children>
+            <HBox spacing="100.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="80.0" text="Products">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="searchproduct" alignment="CENTER_RIGHT" onAction="#searchProdAction" prefHeight="25.0" prefWidth="174.0" promptText="Search by Product ID or Name" />
+               </children>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+            </HBox>
+            <TableView fx:id="prodview">
+               <columns>
+                  <TableColumn fx:id="prodidcol" prefWidth="75.0" text="Product ID#" />
+                  <TableColumn fx:id="prodnamecol" prefWidth="109.0" text="Product Name" />
+                  <TableColumn fx:id="prodinvcol" prefWidth="117.0" text="Inventory Level" />
+                  <TableColumn fx:id="prodpricecol" minWidth="5.0" prefWidth="84.0" text="Price / CPU" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <HBox spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addProdAction" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#modProdAction" text="Modify" />
+                  <Button mnemonicParsing="false" onAction="#delProdAction" text="Delete" />
+               </children>
+               <padding>
+                  <Insets bottom="25.0" left="100.0" right="50.0" top="25.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets right="15.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#exitAction" prefHeight="102.0" prefWidth="209.0" style="-fx-border-color: black; -fx-border-insets: 1; -fx-border-width: 5;" text="Exit">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font></Button>
+         </children>
+         <padding>
+            <Insets left="300.0" />
+         </padding>
+      </HBox>
+      <VBox>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <children>
+            <Label text="Inventory Management System" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" top="50.0" />
+         </padding>
+      </VBox>
+      <ImageView blendMode="DARKEN" fitHeight="159.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <image>
+            <Image url="@images/partslogo.jpg" />
+         </image>
+      </ImageView>
+      <HBox spacing="50.0" GridPane.rowIndex="2">
+         <children>
+            <ImageView fitHeight="91.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/curveball.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" text="CopyRight 06/2021 by Catch22 Software" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </HBox>
+   </children>
+</GridPane>
